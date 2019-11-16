@@ -23,7 +23,6 @@ const routing = (
       <div>
         <NavBar/>
         <Switch>
-          <Route path="/auth" component={Authentication}/>
           <Route path="/class/:code" component={ClassPage}/>
           <Route path="/" component={ClassTopLevel} />
         </Switch>
