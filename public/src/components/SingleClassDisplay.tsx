@@ -44,13 +44,6 @@ export class SingleClassDisplay extends React.Component<SingleClassDisplayProps,
         return formatted;
     }
 
-    private renderSchedule = () : JSX.Element => {
-        if (this.props.displaySections == true) {
-            console.log(this.props.classInfo.Sections)
-            return <Schedule></Schedule>
-        }
-    }
-
     private renderButton = () : JSX.Element => {
         if (this.props.displayButton == true) {
             return <Button variant="contained" color="default" style={testStyle}>Track this class</Button>
@@ -65,7 +58,7 @@ export class SingleClassDisplay extends React.Component<SingleClassDisplayProps,
         let calendar: JSX.Element;
 
         if (this.props.displaySections) {
-            calendar = <Schedule></Schedule>;
+            calendar = <Schedule test={this.props.classInfo}></Schedule>;
         } else {
             calendar = <div></div>;
         }
