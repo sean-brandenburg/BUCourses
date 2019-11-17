@@ -13,6 +13,7 @@ import { ClassBundle } from "./components/ClassBundle";
 import { Authentication } from "./components/Authentication";
 import { ClassPage } from './components/ClassPage';
 import { ClassTopLevel } from "./components/ClassTopLevel";
+import { Auth2 } from "./components/Auth2";
 
 //npx webpack to run and then open index.html
 //npm start runs webpack and starts server

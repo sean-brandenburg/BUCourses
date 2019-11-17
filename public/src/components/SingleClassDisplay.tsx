@@ -28,12 +28,6 @@ export class SingleClassDisplay extends React.Component<SingleClassDisplayProps,
             }
         });
         return formatted;
-        //let test = /(?=[a-zA-Z]{3}[ -][a-zA-Z]{2}[ -]\d{3})/g;
-        //let test2 = text.split(test)
-        //if (test2.length > 1) {
-        //    console.log(test2);
-        //}
-        //return "HELLO WORLD";
     }
     
 

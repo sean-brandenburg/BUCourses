@@ -1,7 +1,8 @@
 import * as React from "react";
 import { Link } from 'react-router-dom';
 import * as Styles from '../styles/NavBarStyles';
-import { Authentication } from './Authentication'
+import { Authentication } from './Authentication';
+import { Auth2 } from './Auth2';
 
 // State should be which link we're on right now probably
 
@@ -38,11 +39,7 @@ export class NavBar extends React.Component<{}, NavBarState> {
                             </Link>
                         </li>
                         <li className="nav-item">
-                            <a style={Styles.NavBarLink} className="nav-link" href="#!">Link</a>
-                        </li>
-                        <li className="nav-item">
-                            <Authentication></Authentication>
-                            {/* <Link style={Styles.NavBarLink} className="nav-link" to='/auth'>Sign In</Link> */}
+                            <Auth2/>
                         </li>
                     </ul>
                 </div>
