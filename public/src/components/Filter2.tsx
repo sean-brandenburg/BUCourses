@@ -529,7 +529,7 @@ export class Filter2 extends React.Component<Filter2Props,Filter2State> {
     }
 
     private sendGetRequest = () : void => {
-        let host : string = 'http://localhost:3000';
+        let host : string = 'https://bucourses.appspot.com'
         let query : string = '/class?';
         //let query : string = '/class?limit=10' + this.getParameterString('College');
         Object.keys(this.state.queryObject).forEach(parameter => {

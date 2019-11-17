@@ -119,8 +119,8 @@ app.get('/class', (req, res) => {
     }
 });
 
-app.listen(3000, async () => {
-    console.log('example app listening on port 3000!');
+app.listen(8080,"0.0.0.0", async () => {
+    console.log('example app listening on port 443!');
     try {
         let connection: any = await MongoHelper.connect();
         courseInfo = connection.db('bucourses_db').collection('course_info');

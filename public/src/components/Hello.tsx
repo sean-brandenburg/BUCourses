@@ -14,7 +14,7 @@ export class Hello extends React.Component<HelloProps, HelloState> {
     }
 
     componentDidMount() {
-        fetch('http://localhost:3000/class?code=cas-cs-411')
+        fetch('https://bucourses.appspot.com/class?code=cas-cs-411')
             .then(res => res.json())
             .then(result => this.setState({classInfo: result, isLoading: false}))
     }
