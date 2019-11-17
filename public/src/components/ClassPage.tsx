@@ -4,6 +4,13 @@ import { SingleClassDisplay } from "./SingleClassDisplay";
 
 type ClassPageState = { code : string; isLoading : boolean; classInfo : SingleClass | undefined};
 
+const test = {
+    marginTop: '80px',
+    width: '80%',
+    marginLeft: 'auto',
+    marginRight: 'auto'
+}
+
 export class ClassPage extends React.Component<any,ClassPageState> {
     constructor(props : any) {
         super(props);        
@@ -43,7 +50,9 @@ export class ClassPage extends React.Component<any,ClassPageState> {
             )
         } else {
             return (
-                <SingleClassDisplay classInfo={this.state.classInfo} displaySections={true}/>
+                <div style={test}>
+                    <SingleClassDisplay classInfo={this.state.classInfo} displaySections={true}/>
+                </div>
             )
         }
     }
