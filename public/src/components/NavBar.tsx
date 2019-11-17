@@ -35,7 +35,7 @@ export class NavBar extends React.Component<{}, NavBarState> {
                     </IconButton>
                     <img src={require("./LogoWithDog.png")} style={{maxHeight: "60px"}}/>
                     <div style={Styles.title}></div>
-                    <Button color="inherit">Login</Button>
+                    {/*<Button color="inherit">Login</Button>*/}
                     <Auth2/>
                 </Toolbar>
             </AppBar>
