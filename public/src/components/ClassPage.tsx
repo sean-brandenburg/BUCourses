@@ -43,7 +43,7 @@ export class ClassPage extends React.Component<any,ClassPageState> {
             )
         } else {
             return (
-                <SingleClassDisplay classInfo={this.state.classInfo}/>
+                <SingleClassDisplay classInfo={this.state.classInfo} displaySections={true}/>
             )
         }
     }

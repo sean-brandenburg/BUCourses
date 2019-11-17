@@ -33,10 +33,10 @@ export class Auth2 extends React.Component<any,any> {
         let fetchString : string = 'http://localhost:3000/users/newUser?email=' + email;
         fetch(fetchString)
             .then( (response) => {
-                alert(response.status);
+                console.log(response.status);
             })
     }
-    
+
     render() {
         return (
             <div  style={Styles.buttonStyle} id={GOOGLE_BUTTON_ID}></div>
