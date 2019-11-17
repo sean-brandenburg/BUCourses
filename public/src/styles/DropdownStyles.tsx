@@ -4,7 +4,7 @@ export const DropdownChecklist = {
 };
 
 export const DropdownButton = {
-    backgroundColor : "#E31C25",
+    backgroundColor : "#CC0000",
     border : "none"
 };
 

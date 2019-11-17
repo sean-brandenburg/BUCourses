@@ -3,6 +3,7 @@ import * as React from "react";
 import { Dropdown } from "./Dropdown";
 import { SingleClass } from "../types/SingleClassType";
 import { FilterContainer } from '../styles/FilterStyles';
+import { Button } from "@material-ui/core";
 
 interface depObjInner {
     [key : string] : string
@@ -422,7 +423,7 @@ interface checkedMap {[key: string] : boolean};
 interface queryParameters {[key: string] : Array<any>};
 
 type Filter2State = { queryObject: queryParameters , listedDepartments : Array<string>};
-type Filter2Props = { callback : ( newCurrentSelections : Array<SingleClass> ) => void};
+type Filter2Props = { callback : ( newCurrentSelections : Array<SingleClass> ) => void, callbackPrevNext: ( addIndex : number ) => void };
 
 export class Filter2 extends React.Component<Filter2Props,Filter2State> {
     constructor(props: Filter2Props) {
@@ -555,11 +556,17 @@ export class Filter2 extends React.Component<Filter2Props,Filter2State> {
     render() {
         return (
             <div style={FilterContainer}>
-                <Dropdown name="Filter by College..." options={Colleges} identifier={'College'} propogateState={this.setQueryFromDropdownCollege}/>
-                <Dropdown name="Filter by Department..." options={this.state.listedDepartments} identifier={'Department'} propogateState={this.setQueryFromDropdown}/>
-                <Dropdown name="Filter by Level..." options={Level} identifier={'Level'} propogateState={this.setQueryFromDropdownLevels}/>
-                <Dropdown name="Filter by Credits..." options={CreditOptions} identifier={'Credits'} propogateState={this.setQueryFromDropdownCredits}/>
-                <Dropdown name="Filter by Hub Requirements..." options={Hub} identifier={'Hub'} propogateState={this.setQueryFromDropdown}/>
+                <Dropdown name="Filter by College" options={Colleges} identifier={'College'} propogateState={this.setQueryFromDropdownCollege}/>
+                <Dropdown name="Filter by Department" options={this.state.listedDepartments} identifier={'Department'} propogateState={this.setQueryFromDropdown}/>
+                <Dropdown name="Filter by Level" options={Level} identifier={'Level'} propogateState={this.setQueryFromDropdownLevels}/>
+                <Dropdown name="Filter by Credits" options={CreditOptions} identifier={'Credits'} propogateState={this.setQueryFromDropdownCredits}/>
+                <Dropdown name="Filter by Hub Requirements" options={Hub} identifier={'Hub'} propogateState={this.setQueryFromDropdown}/>
+                <Button variant="contained" onClick={() => this.props.callbackPrevNext(-10)}>
+                    Prev
+                </Button>
+                <Button variant="contained" onClick={() => this.props.callbackPrevNext(10)}>
+                    Next
+                </Button>
             </div>
         )
     }

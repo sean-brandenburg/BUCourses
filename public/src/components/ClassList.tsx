@@ -3,7 +3,7 @@ import { SingleClass } from "../types/SingleClassType";
 import { SingleClassDisplay} from "./SingleClassDisplay";
 import { ClassListContainer } from "../styles/ClassListStyles";
 
-type ClassListProps = { classes : Array<SingleClass>;}
+type ClassListProps = { classes : Array<SingleClass>};
 
 export class ClassList extends React.Component<ClassListProps> {
     constructor(props: ClassListProps) {
