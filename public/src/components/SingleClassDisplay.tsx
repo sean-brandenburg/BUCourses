@@ -7,8 +7,17 @@ import { Link } from "react-router-dom";
 import Grid from '@material-ui/core/Grid';
 import Avatar from '@material-ui/core/Avatar';
 import Paper from '@material-ui/core/Paper';
+import Button from '@material-ui/core/Button';
 
-type SingleClassDisplayProps = { classInfo : SingleClass, displaySections : boolean};
+
+const testStyle = {
+    marginLeft: 'auto',
+    marginRight: '10px',
+    marginBottom: '10px',
+    width : '200px'
+}
+
+type SingleClassDisplayProps = { classInfo : SingleClass, displaySections : boolean, displayButton : boolean};
 
 export class SingleClassDisplay extends React.Component<SingleClassDisplayProps, {}> {
     constructor(props: SingleClassDisplayProps) {
@@ -41,6 +50,12 @@ export class SingleClassDisplay extends React.Component<SingleClassDisplayProps,
             return <Schedule sections={this.props.classInfo.Sections}></Schedule>
         }
     }
+
+    private renderButton = () : JSX.Element => {
+        if (this.props.displayButton == true) {
+            return <Button variant="contained" color="default" style={testStyle}>Track this class</Button>
+        }
+    }
     
 
     render() {
@@ -57,7 +72,7 @@ export class SingleClassDisplay extends React.Component<SingleClassDisplayProps,
                         <h5 style={Styles.ClassName}><Link style={Styles.Link} to={"/class/" + this.props.classInfo.Code}>{this.props.classInfo.ClassName}</Link></h5>
                         <h5 style={Styles.Code}>{newCode} · {this.props.classInfo.College} · {this.props.classInfo.Credits} Credits</h5>
                         <h6 style={Styles.Description}>{this.props.classInfo.Description}</h6>
-
+                        {this.renderButton()}
                 </Grid>
             </Paper>
         )

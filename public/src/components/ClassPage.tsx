@@ -51,7 +51,7 @@ export class ClassPage extends React.Component<any,ClassPageState> {
         } else {
             return (
                 <div style={test}>
-                    <SingleClassDisplay classInfo={this.state.classInfo} displaySections={true}/>
+                    <SingleClassDisplay classInfo={this.state.classInfo} displaySections={true} displayButton={true}/>
                 </div>
             )
         }

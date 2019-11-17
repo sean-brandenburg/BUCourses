@@ -22,7 +22,7 @@ export class ClassList extends React.Component<ClassListProps> {
                         {this.props.classes.map( (classInfo : SingleClass, i : number) => {
                             return (
                                 // <li style={{listStyle : "none"}} key={i}>
-                                    <SingleClassDisplay classInfo={classInfo} displaySections={false} key={i} />
+                                    <SingleClassDisplay classInfo={classInfo} displaySections={false} key={i} displayButton={false}/>
                                 // </li>
                             )   
                         })}
