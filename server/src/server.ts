@@ -6,6 +6,7 @@ import { isNullOrUndefined, isUndefined } from 'util';
 const app: express.Application = express();
 app.use(cors());
 var courseInfo: any;
+var users: any;
 
 app.get('/class', (req, res) => {
     let code: string | undefined = req.query.code;
@@ -119,11 +120,30 @@ app.get('/class', (req, res) => {
     }
 });
 
-app.listen(8080,"0.0.0.0", async () => {
-    console.log('example app listening on port 443!');
+app.get('/users/newUser', (req, res) => {
+    let email : string | undefined = req.query.email;
+    if (isUndefined(email)) {
+        res.sendStatus(400);
+    } else {
+        users.find({email : email}).toArray( (err: any, result: any) => {
+            if (err)
+                throw err;
+            if (result.length > 0) {
+                res.sendStatus(409)
+            } else {
+                users.insertOne({email : email});
+                res.sendStatus(200);
+            }
+        })
+    }
+});
+
+app.listen(8080,0.0.0.0, async () => {
+    console.log('example app listening on port 3000!');
     try {
         let connection: any = await MongoHelper.connect();
         courseInfo = connection.db('bucourses_db').collection('course_info');
+        users = connection.db('bucourses_db').collection('users');
         console.log('connection successful :)');
     } catch(err) {
         console.error('whoops!', err);

@@ -63,3 +63,6 @@ typings/
 # node installs
 /server/node_modules/*
 /public/node_modules/*
+
+# dump
+/public/dist/*

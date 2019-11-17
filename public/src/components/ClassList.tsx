@@ -21,9 +21,9 @@ export class ClassList extends React.Component<ClassListProps> {
                     <ul>
                         {this.props.classes.map( (classInfo : SingleClass, i : number) => {
                             return (
-                                <li style={{listStyle : "none"}} key={i}>
-                                    <SingleClassDisplay classInfo={classInfo}/>
-                                </li>
+                                // <li style={{listStyle : "none"}} key={i}>
+                                    <SingleClassDisplay classInfo={classInfo} key={i} />
+                                // </li>
                             )   
                         })}
                     </ul>
