@@ -15,7 +15,7 @@ export class ClassPage extends React.Component<any,ClassPageState> {
     }
 
     componentDidMount() {
-        let host : string = 'http://localhost:3000'
+        let host : string = 'https://bucourses.appspot.com'
         let query : string = '/class?code=' + this.state.code;
         fetch(host + query)
             .then( res => {
@@ -43,7 +43,7 @@ export class ClassPage extends React.Component<any,ClassPageState> {
             )
         } else {
             return (
-                <SingleClassDisplay classInfo={this.state.classInfo}/>
+                <SingleClassDisplay classInfo={this.state.classInfo} displaySections={true}/>
             )
         }
     }

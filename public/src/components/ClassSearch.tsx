@@ -13,7 +13,7 @@ export class ClassSearch extends React.Component<ClassSearchProps, ClassSearchSt
 
     }
     private handleSubmit = (): void => {
-        let fetchString: string = 'http://localhost:3000/class?code=' + this.state.code;
+        let fetchString: string = 'https://bucourses.appspot.com/class?code=' + this.state.code;
         fetch(fetchString)
             .then(( response ) => {
                 return response.json();

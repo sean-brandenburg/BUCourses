@@ -138,7 +138,7 @@ app.get('/users/newUser', (req, res) => {
     }
 });
 
-app.listen(3000, async () => {
+app.listen(8080,'0.0.0.0', async () => {
     console.log('example app listening on port 3000!');
     try {
         let connection: any = await MongoHelper.connect();
