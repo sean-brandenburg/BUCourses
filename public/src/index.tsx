@@ -15,6 +15,8 @@ import { ClassPage } from './components/ClassPage';
 import { ClassTopLevel } from "./components/ClassTopLevel";
 import { Auth2 } from "./components/Auth2";
 
+import { Schedule } from "./components/Schedule";
+
 //npx webpack to run and then open index.html
 //npm start runs webpack and starts server
 
@@ -25,6 +27,7 @@ const routing = (
         <NavBar/>
         <Switch>
           <Route path="/class/:code" component={ClassPage}/>
+          <Route path="/schedule" component={Schedule} />
           <Route path="/" component={ClassTopLevel} />
         </Switch>
       </div>
