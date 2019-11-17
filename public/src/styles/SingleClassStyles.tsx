@@ -1,32 +1,45 @@
 export const SingleClassContainer = {
-    marginBottom: "40px"
-}
+    marginBottom: "15px"
+};
+
+export const Avatar = {
+    width: '55px',
+    height: '40px',
+    background: "#CC0000"
+};
 
 export const ClassName = {
-    marginBottom: "10px",
-    color : "#E31C25"
+    margin: "10px",
+    color : "#CC0000"
+};
+
+export const Link = {
+    color : "#CC0000"
 };
 
 export const Code = {
-    marginLeft: "20px",
+    marginLeft: "10px",
     display: "inline",
-    color : "#E31C25"
-};
-
-export const College = {
-    marginLeft: "25px",
-    display: "inline",
-    color : "#1C1C1C"
-};
-
-export const Credits = {
-    marginLeft: "25px",
-    display: "inline",
-    color : "#1C1C1C"
+    color : "#2E3134"
 };
 
 export const Description = {
-    marginTop: "10px",
     marginLeft: "10px",
-    color : "#1C1C1C"
+    marginRight: "10px",
+    marginBottom: "10px",
+    color : "#2E3134"
 };
+
+// Unused
+export const College = {
+    marginLeft: "10px",
+    display: "inline",
+    color : "#2E3134"
+};
+
+export const Credits = {
+    marginLeft: "10px",
+    display: "inline",
+    color : "#2E3134"
+};
+

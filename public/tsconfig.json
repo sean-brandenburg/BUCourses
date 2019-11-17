@@ -6,7 +6,7 @@
         "module": "commonjs",
         "target": "es6",
         "jsx": "react",
-        "types": ["gapi", "gapi.auth2"],
+        "types": ["gapi", "gapi.auth2", "node"],
         "resolveJsonModule": true
     }
 }
