@@ -18,7 +18,7 @@ export class ClassTopLevel extends React.Component<{},ClassTopLevelState> {
     }
 
     componentDidMount() {
-        let host : string = 'http://localhost:3000';
+        let host : string = 'https://bucourses.appspot.com';
         let query : string = '/class?';//limit=10';
         fetch(host + query)
             .then( res => {

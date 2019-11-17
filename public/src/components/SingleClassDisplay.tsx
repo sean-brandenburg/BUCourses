@@ -4,6 +4,10 @@ import { Schedule } from "./Schedule";
 import * as Styles from "../styles/SingleClassStyles";
 import { Link } from "react-router-dom";
 
+import Grid from '@material-ui/core/Grid';
+import Avatar from '@material-ui/core/Avatar';
+import Paper from '@material-ui/core/Paper';
+
 type SingleClassDisplayProps = { classInfo : SingleClass, displaySections : boolean};
 
 export class SingleClassDisplay extends React.Component<SingleClassDisplayProps, {}> {
@@ -41,16 +45,21 @@ export class SingleClassDisplay extends React.Component<SingleClassDisplayProps,
 
     render() {
         let newCode : string = this.props.classInfo.Code.replace(/-/g, " ").toUpperCase();
+        let college : string = newCode.split(" ")[0];
 
         return (
-            <div style={Styles.SingleClassContainer}>
-                <h4 ><Link style={Styles.ClassName} to={"/class/" + this.props.classInfo.Code}>{this.props.classInfo.ClassName}</Link></h4>
-                <h5 style={Styles.Code}>{newCode}</h5>
-                <h5 style={Styles.College}>{this.props.classInfo.College}</h5>
-                <h5 style={Styles.Credits}>{this.props.classInfo.Credits} Credits</h5>                
-                <h6 style={Styles.Description}>{this.detectClasses(this.props.classInfo.Description)}</h6>
-                {this.renderSchedule()}
-            </div>
+            <Paper elevation={1} square={true} style={Styles.SingleClassContainer}>
+                <Grid
+                    container
+                    direction="column"
+                    justify="center">
+                        <Avatar variant="square" style={Styles.Avatar}>{college}</Avatar>
+                        <h5 style={Styles.ClassName}><Link style={Styles.Link} to={"/class/" + this.props.classInfo.Code}>{this.props.classInfo.ClassName}</Link></h5>
+                        <h5 style={Styles.Code}>{newCode} · {this.props.classInfo.College} · {this.props.classInfo.Credits} Credits</h5>
+                        <h6 style={Styles.Description}>{this.props.classInfo.Description}</h6>
+
+                </Grid>
+            </Paper>
         )
     }
 }
