@@ -47,7 +47,7 @@ export class SingleClassDisplay extends React.Component<SingleClassDisplayProps,
     private renderSchedule = () : JSX.Element => {
         if (this.props.displaySections == true) {
             console.log(this.props.classInfo.Sections)
-            return <Schedule sections={this.props.classInfo.Sections}></Schedule>
+            return <Schedule></Schedule>
         }
     }
 
@@ -62,7 +62,16 @@ export class SingleClassDisplay extends React.Component<SingleClassDisplayProps,
         let newCode : string = this.props.classInfo.Code.replace(/-/g, " ").toUpperCase();
         let college : string = newCode.split(" ")[0];
 
+        let calendar: JSX.Element;
+
+        if (this.props.displaySections) {
+            calendar = <Schedule></Schedule>;
+        } else {
+            calendar = <div></div>;
+        }
+
         return (
+            <div>
             <Paper elevation={1} square={true} style={Styles.SingleClassContainer}>
                 <Grid
                     container
@@ -75,6 +84,8 @@ export class SingleClassDisplay extends React.Component<SingleClassDisplayProps,
                         {this.renderButton()}
                 </Grid>
             </Paper>
+            {calendar}
+            </div>
         )
     }
 }
