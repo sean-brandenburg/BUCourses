@@ -6,9 +6,8 @@ type ClassPageState = { code : string; isLoading : boolean; classInfo : SingleCl
 
 const test = {
     marginTop: '80px',
-    width: '80%',
-    marginLeft: 'auto',
-    marginRight: 'auto'
+    width: '100vw',
+    height : '100vh - 60px'
 }
 
 export class ClassPage extends React.Component<any,ClassPageState> {

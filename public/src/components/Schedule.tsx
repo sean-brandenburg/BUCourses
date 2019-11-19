@@ -20,7 +20,7 @@ import * as React from "react";
 import { render } from "react-dom";
 import Container from "@material-ui/core/Container";
 import Paper from "@material-ui/core/Paper";
-import { ViewState } from "@devexpress/dx-react-scheduler";
+import { ViewState, SchedulerProps, ScrollingStrategy } from "@devexpress/dx-react-scheduler";
 import {
   Scheduler,
   WeekView,
@@ -124,14 +124,15 @@ export class Schedule extends React.Component<ScheduleProps,{}> {
       }
     })
 
+
     //let data : any = [{startDate : date + " " + "10:00", endDate : date + " " + "14:00", title : "class"}]
     return (
       <MuiThemeProvider theme={theme}>
-          <Container style={{marginTop: "80px", marginBottom: "20px"}}>
-            <Paper style={{marginLeft: "70px", marginRight: "70px", marginTop: "60px", marginBottom: "20px"}}>
+          <Container style={{height: "100%"}}>
+            <Paper style={{height: "100%"}/*{marginLeft: "70px", marginRight: "70px", marginTop: "60px", marginBottom: "20px", height: "80vh", width: "40vw"}*/}>
             <Scheduler firstDayOfWeek={0} data={data}>
                <ViewState currentDate={date}/>
-               <WeekView startDayHour={8} endDayHour={22}/>
+               <WeekView startDayHour={8} endDayHour={22} cellDuration={60} excludedDays={[0, 6]}/>
                <Appointments/>
             </Scheduler>
             </Paper>
