@@ -1,5 +1,6 @@
 import * as React from "react";
 import * as Styles from "../styles/AuthStyles";
+import { Notify } from "./NotifySMS";
 
 const GOOGLE_BUTTON_ID = "google-sign-in-button";
 
@@ -7,15 +8,17 @@ const GOOGLE_BUTTON_ID = "google-sign-in-button";
 export class Auth2 extends React.Component<any,any> {
     constructor(props : any) {
         super(props);
-
+        this.state={
+          showNotify: false
+        };
     }
 
     componentDidMount() {
         gapi.load('auth2', () => {
             gapi.auth2.init({
-                client_id: "27000856552-tk70ev4o6nk5pln2ei93ni92semnndjk.apps.googleusercontent.com"    
+                client_id: "27000856552-tk70ev4o6nk5pln2ei93ni92semnndjk.apps.googleusercontent.com"
             }).then(() => {
-                gapi.signin2.render(GOOGLE_BUTTON_ID, 
+                gapi.signin2.render(GOOGLE_BUTTON_ID,
                     {
                         'width': 90,
                         'height': 30,
@@ -34,18 +37,17 @@ export class Auth2 extends React.Component<any,any> {
         fetch(fetchString)
             .then( (response) => {
                 console.log(response.status);
+                this.setState({showNotify: true});
             })
     }
 
+
+
     render() {
         return (
-            <div  style={Styles.buttonStyle} id={GOOGLE_BUTTON_ID}></div>
+            <div  style={Styles.buttonStyle} id={GOOGLE_BUTTON_ID}>
+              {this.state.showNotify ? <Notify /> : null}
+            </div>
         )
     }
 }
-
-
-
-
-
-

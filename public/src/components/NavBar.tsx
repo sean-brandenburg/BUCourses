@@ -12,22 +12,33 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import { withStyles } from "@material-ui/styles";
+import { Notify } from "./NotifySMS";
+
 
 // State should be which link we're on right now probably
 
-type NavBarState = { loggedIn: boolean, name: String };
+type NavBarState = { loggedIn: boolean, name: String, showNotif: boolean };
 
 export class NavBar extends React.Component<{}, NavBarState> {
     constructor(props: any) {
         super(props);
         this.state = {
             loggedIn: false,
-            name: ""
+            name: "",
+            showNotif: false
         }
     }
 
+    callSMS = () => {
+      this.setState({
+        loggedIn: this.state.loggedIn,
+        name: this.state.name,
+        showNotif: true});
+    }
+
     render() {
-        return (
+
+      return (
             <AppBar elevation={0} style={Styles.bar}>
                 <Toolbar>
                     <IconButton edge="start" style={Styles.menuButton} color="inherit" aria-label="menu">
@@ -35,7 +46,15 @@ export class NavBar extends React.Component<{}, NavBarState> {
                     </IconButton>
                     <img src={require("./LogoWithDog.png")} style={{maxHeight: "60px"}}/>
                     <div style={Styles.title}></div>
+<<<<<<< Updated upstream
                     <Button color="inherit">Login</Button>
+=======
+                    <Button color="inherit" onClick={this.callSMS}>Login</Button>
+                    {this.state.showNotif ?
+                      <Notify /> :
+                      null
+                    }
+>>>>>>> Stashed changes
                     <Auth2/>
                 </Toolbar>
             </AppBar>
@@ -71,4 +90,3 @@ export class NavBar extends React.Component<{}, NavBarState> {
         )
     }
 }
-

@@ -3,10 +3,16 @@ import { MongoHelper } from './mongoHelper';
 import cors = require('cors');
 import { isNullOrUndefined, isUndefined } from 'util';
 
+
 const app: express.Application = express();
 app.use(cors());
 var courseInfo: any;
 var users: any;
+
+const ACCOUNT_SID = process.env.TWILIOSID;
+const AUTH_TOKEN = process.env.TWILIOTOKEN;
+const SENDER = process.env.TWILIONUMBER;
+const client = require('twilio')(ACCOUNT_SID, AUTH_TOKEN);
 
 app.get('/class', (req, res) => {
     let code: string | undefined = req.query.code;
@@ -96,10 +102,10 @@ app.get('/class', (req, res) => {
                 conditions.push({Level: {$gte : levelMin}});
             }
             filters.push({$or : conditions});
-        }        
+        }
 
         /* Join the filters and run query */
-        
+
         let innerFind : any = filters.length == 0 ? {} : {$and: filters};
 
         if (!isUndefined(limit)) {
@@ -116,7 +122,7 @@ app.get('/class', (req, res) => {
                 res.send(result);
             });
         }
-        
+
     }
 });
 
@@ -136,6 +142,24 @@ app.get('/users/newUser', (req, res) => {
             }
         })
     }
+});
+
+app.get('/messages', (req, res) => {
+  // res.header('Content-Type', 'application/json');
+  let num : string | undefined = req.query.num;
+
+  client.messages
+    .create({
+      body: "Thanks for joining BU Courses! Follow courses on the site and get notified when they are available!",
+      from: SENDER,
+      to: num
+    })
+    .then(function (message: any): void{
+      console.log(message);
+    })
+    .catch(function (error: any): void{
+      console.log(error);
+    })
 });
 
 app.listen(8080,'0.0.0.0', async () => {
